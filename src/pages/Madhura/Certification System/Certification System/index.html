@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learnify | Professional Certificate Generator</title>
+    <!-- Google Fonts for Premium Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Great+Vibes&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- html2canvas for image generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <div class="app-layout">
+        <!-- Sidebar: Input Form -->
+        <aside class="sidebar">
+            <header class="app-header">
+                <h1 class="logo">Learn<span>ify</span></h1>
+                <p>Certificate Generator</p>
+            </header>
+
+            <form id="certificate-form" class="glass-form">
+                <div class="input-group">
+                    <label for="recipient-name">Recipient Name</label>
+                    <input type="text" id="recipient-name" placeholder="e.g. Sunita Devi" maxlength="40">
+                </div>
+                
+                <div class="input-group">
+                    <label for="course-title">Course/Achievement</label>
+                    <input type="text" id="course-title" placeholder="e.g. Master Tailoring Program" maxlength="60">
+                </div>
+
+                <div class="input-group">
+                    <label for="course-score">Course Grade / Score</label>
+                    <input type="text" id="course-score" placeholder="e.g. A" maxlength="20">
+                </div>
+
+                <div class="input-group">
+                    <label for="completion-date">Date</label>
+                    <input type="date" id="completion-date">
+                </div>
+
+                <div class="input-group">
+                    <label for="issuer-name">Issued By</label>
+                    <input type="text" id="issuer-name" value="Learnify Academy" placeholder="Organization Name">
+                </div>
+
+                <button type="button" id="download-btn" class="primary-btn">
+                    <span class="material-icons-round">download</span>
+                    Download PNG
+                </button>
+            </form>
+            
+            <footer class="sidebar-footer">
+                <p>© 2026 Learnify Platform</p>
+            </footer>
+        </aside>
+
+        <!-- Main: Real-time Preview Area -->
+        <main class="preview-area">
+            <div class="preview-container">
+                <div id="certificate-element" class="certificate">
+                    <!-- Geometric Corners & Banners -->
+                    <div class="top-banner"></div>
+                    <div class="bottom-left-corner"></div>
+                    <div class="bottom-right-corner"></div>
+                    
+                    <!-- Gold Seal ("Perfect Logo") -->
+                    <div class="gold-seal">
+                        <div class="seal-ribbon-left"></div>
+                        <div class="seal-ribbon-right"></div>
+                        <div class="seal-outer">
+                            <div class="seal-inner"></div>
+                        </div>
+                    </div>
+
+                    <div class="cert-content">
+                        <h1 class="cert-title">CERTIFICATE</h1>
+                        <h3 class="cert-subtitle-main">Of Completion</h3>
+                        
+                        <p class="cert-intro">This is to certify that</p>
+                        
+                        <div class="name-container">
+                            <h2 class="cert-recipient" id="preview-name">Recipient Name</h2>
+                            <div class="name-underline"></div>
+                        </div>
+                        
+                        <p class="cert-completion-text">has successfully completed the course</p>
+                        <h2 class="cert-course-name" id="preview-course">Course Name</h2>
+                        
+                        <p class="cert-description">
+                            This certificate recognizes the achievement and commitment 
+                            to continuous learning and skill development, with a grade of <span id="preview-score">85</span>, 
+                            awarded on <span id="preview-date">April 04, 2026</span>.
+                        </p>
+                        
+                        <div class="cert-footer">
+                            <div class="signature-block">
+                                <div class="signature-line"></div>
+                                <span class="signature-label">AUTHORIZED SIGNATURE</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

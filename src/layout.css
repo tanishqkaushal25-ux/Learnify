@@ -1,51 +1,7 @@
-/* ─────────── CSS VARIABLES ─────────── */
-:root {
-  --sidebar-width: 280px;
-  --topbar-height: 64px;
-
-  --bg-main: #f8f9fa;
-  --bg-sidebar: #1f2937;
-  --bg-input: #f1f3f5;
-  --bg-hover: #374151;
-
-  --primary: #3b82f6;
-  --primary-light: #60a5fa;
-  --primary-transparent: rgba(59, 130, 246, 0.1);
-
-  --text-primary: #111827;
-  --text-secondary: #6b7280;
-  --text-muted: #9ca3af;
-
-  --border: #e5e7eb;
-
-  --border-radius-sm: 4px;
-  --border-radius-md: 8px;
-  --border-radius-lg: 12px;
-}
-
-/* ─────────── LAYOUT ─────────── */
-.app-container {
-  display: flex;
-  min-height: 100vh;
-  background-color: var(--bg-main);
-}
-
-.main-content {
-  flex: 1;
-  padding: 0;
-  margin-left: var(--sidebar-width);
-  transition: margin-left 0.3s ease;
-}
-
-.content-wrapper {
-  padding: 20px;
-}
-
-/* ─────────── SIDEBAR ─────────── */
+/* Sidebar */
 .sidebar {
   width: var(--sidebar-width);
   background-color: var(--bg-sidebar);
-  color: white;
   border-right: 1px solid var(--border);
   height: 100vh;
   position: fixed;
@@ -55,12 +11,7 @@
   flex-direction: column;
   padding: 24px 16px;
   z-index: 50;
-  transform: translateX(0);
   transition: transform 0.3s ease;
-}
-
-.sidebar.open {
-  transform: translateX(0);
 }
 
 .sidebar-header {
@@ -68,11 +19,29 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 40px;
+  padding: 0 12px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  width: 40px;
+  height: 40px;
+  background-color: var(--primary-transparent);
+  border-radius: var(--border-radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo-text {
   font-size: 1.25rem;
   font-weight: 700;
+  color: var(--text-primary);
 }
 
 .sidebar-nav {
@@ -90,7 +59,6 @@
   border-radius: var(--border-radius-sm);
   color: var(--text-secondary);
   font-weight: 500;
-  cursor: pointer;
   transition: all 0.2s;
 }
 
@@ -104,7 +72,6 @@
   color: white;
 }
 
-/* Pro Tip Card at bottom */
 .pro-tip-card {
   background-color: var(--primary-transparent);
   border-radius: var(--border-radius-md);
@@ -112,18 +79,36 @@
   margin-top: auto;
 }
 
-/* ─────────── TOPBAR ─────────── */
+.pro-tip-title {
+  color: var(--primary-light);
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+}
+
+.pro-tip-text {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.mobile-close-btn {
+  display: none;
+  color: var(--text-secondary);
+}
+
+/* Topbar */
 .topbar {
   height: var(--topbar-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 40px;
-  background-color: var(--bg-main);
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  z-index: 20;
+  background-color: transparent;
+}
+
+.mobile-menu-btn {
+  display: none;
+  color: var(--text-primary);
 }
 
 .search-container {
@@ -140,7 +125,6 @@
 .search-icon {
   color: var(--text-muted);
   margin-right: 12px;
-  cursor: pointer;
 }
 
 .search-input {
@@ -149,6 +133,7 @@
   outline: none;
   color: var(--text-primary);
   width: 100%;
+  font-size: 0.95rem;
 }
 
 .search-input::placeholder {
@@ -183,12 +168,39 @@
   color: var(--text-secondary);
 }
 
-.mobile-menu-btn {
-  display: none;
-  color: var(--text-primary);
+/* Responsive */
+@media (max-width: 1024px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  .sidebar.open {
+    transform: translateX(0);
+  }
+  .mobile-close-btn {
+    display: block;
+  }
+  
+  .topbar {
+    padding: 0 20px;
+  }
+  .mobile-menu-btn {
+    display: block;
+  }
+  .search-container {
+    width: 60%;
+    margin: 0 16px;
+  }
 }
 
-/* ─────────── OVERLAY ─────────── */
+@media (max-width: 640px) {
+  .user-name, .chevron-icon {
+    display: none;
+  }
+  .search-container {
+    padding: 0 12px;
+  }
+}
+
 .sidebar-overlay {
   position: fixed;
   top: 0;
@@ -198,43 +210,4 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 40;
   backdrop-filter: blur(2px);
-}
-
-/* ─────────── RESPONSIVE ─────────── */
-@media (max-width: 1024px) {
-  .sidebar {
-    transform: translateX(-100%);
-  }
-
-  .sidebar.open {
-    transform: translateX(0);
-  }
-
-  .mobile-menu-btn {
-    display: block;
-  }
-
-  .topbar {
-    padding: 0 20px;
-  }
-
-  .search-container {
-    width: 60%;
-  }
-}
-
-@media (max-width: 640px) {
-
-  .user-name,
-  .chevron-icon {
-    display: none;
-  }
-
-  .search-container {
-    padding: 0 12px;
-  }
-
-  .main-content {
-    margin-left: 0;
-  }
 }
