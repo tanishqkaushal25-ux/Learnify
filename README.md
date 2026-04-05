@@ -1,16 +1,48 @@
-# React + Vite
+# Learnify – YouTube Learning Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## How to Run:
+Open the terminal in the project folder, then run:
 
-Currently, two official plugins are available:
+npm install
+npm run dev
+Project Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Learnify is an AI-powered educational platform that makes YouTube learning structured and effective. It filters the best YouTube videos for any topic you search, curates a personalized learning playlist, tests knowledge through assignments with anti-cheat systems, and provides verified certificates upon completion—ensuring high-quality learning with proof of mastery.
 
-## React Compiler
+## Key features:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Personalized learning dashboards with curated YouTube content.
+Assignment testing with anti-cheat logic to ensure fair evaluation.
+Automatic certificate generation upon completion of courses.
+Trackable learning progress and achievement records.
+Clean and interactive user interface for seamless learning experience.
+Project Structure
+/src
+  /components   # React components (CertificateCard, TestPanel, etc.)
+  /pages        # App pages (Courses, Certificates, Dashboard, etc.)
+  /assets       # Images, icons, and fonts
+  /styles       # CSS files
+  main.jsx      # Entry point
 
-## Expanding the ESLint configuration
+## Installation
+Clone the repository:
+git clone <repo-url>
+Install dependencies:
+npm install
+Start the development server:
+npm run dev
+Open your browser at http://localhost:5173 (or the port Vite shows).
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Usage
+Browse courses and start learning.
+Complete assignments to test your knowledge.
+Earn certificates upon successful completion.
+Certificates can be downloaded or shared directly.
+
+## Tech Stack
+Frontend: React, Vite, Lucide-React icons
+Storage: LocalStorage for storing certificate/course data
+Styling: CSS, Google Fonts for typography
+Notes
+Make sure your browser allows pop-ups for the certificate download feature.
+The platform currently works fully on desktop browsers.
