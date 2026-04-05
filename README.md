@@ -4,8 +4,10 @@
 Open the terminal in the project folder, then run:
 
 npm install
+
 npm run dev
-Project Overview
+
+## Project Overview
 
 Learnify is an AI-powered educational platform that makes YouTube learning structured and effective. It filters the best YouTube videos for any topic you search, curates a personalized learning playlist, tests knowledge through assignments with anti-cheat systems, and provides verified certificates upon completion—ensuring high-quality learning with proof of mastery.
 
